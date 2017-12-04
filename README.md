@@ -49,5 +49,8 @@ The filter will pick up only those request whose have annotated with `@XxsFilter
  
 ### FilterConfig : 
   This component will register CustomXssFilter if there will any @XxsFilte annotation used in url mapping, if there will no @XxsFilte used in application then `CustomXssFilter` will disable.
- 
+  
+  
+##Please create a new issue if you found any issue, also you can create a pull request from improvement. 
+Thank you!
  
