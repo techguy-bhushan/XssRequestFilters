@@ -131,6 +131,5 @@ buildNumber.properties
 
 .gitignore
 .idea/
-src/main/java/com/xss/request/filters/api/
 src/main/resources/
-src/test/
+
