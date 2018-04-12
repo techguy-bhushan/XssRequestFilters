@@ -2,9 +2,9 @@ package com.xss.request.filters.service;
 
 import java.util.regex.Pattern;
 
-public class DefaultStripXssImpl implements StripXss {
+public class DefaultRansackXssImpl implements RansackXss {
     @Override
-    public String stripXSS(String value) {
+    public String ransackXss(String value) {
         if (value != null) {
             // NOTE: It's highly recommended to use the ESAPI library and uncomment the following line to
             // avoid encoded attacks.

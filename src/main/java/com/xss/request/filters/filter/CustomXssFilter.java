@@ -1,7 +1,7 @@
 package com.xss.request.filters.filter;
 
 import com.xss.request.filters.http.wrappers.CaptureRequestWrapper;
-import com.xss.request.filters.service.StripXss;
+import com.xss.request.filters.service.RansackXss;
 
 import java.io.IOException;
 
@@ -20,13 +20,13 @@ import javax.servlet.http.HttpServletRequest;
  * This filter will only work for request which action have annotated {@link com.xss.request.filters.annotation.XxsFilter} (with help of   {@link com.xss.request.filters.config.XssFiltersConfiguration} )
  */
 public class CustomXssFilter implements Filter {
-    private StripXss stripXss;
+    private RansackXss ransackXss;
 
-    public CustomXssFilter(StripXss stripXss) {
-        if (stripXss == null) {
-            throw new IllegalArgumentException("stripXss can't be null");
+    public CustomXssFilter(RansackXss ransackXss) {
+        if (ransackXss == null) {
+            throw new IllegalArgumentException("ransackXss can't be null");
         }
-        this.stripXss = stripXss;
+        this.ransackXss = ransackXss;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class CustomXssFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        filterChain.doFilter(new CaptureRequestWrapper((HttpServletRequest)servletRequest, stripXss), servletResponse);
+        filterChain.doFilter(new CaptureRequestWrapper((HttpServletRequest)servletRequest, ransackXss), servletResponse);
     }
 
     @Override

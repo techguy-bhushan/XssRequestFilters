@@ -13,12 +13,12 @@ import static org.junit.Assert.assertThat;
 
 
 @RunWith(value = Parameterized.class)
-public class StripXssTest {
+public class RansackXssTest {
 
     private String parameterValue;
     private String expected;
 
-    public StripXssTest(String parameterValue, String expected) {
+    public RansackXssTest(String parameterValue, String expected) {
         this.parameterValue = parameterValue;
         this.expected = expected;
     }
@@ -34,10 +34,10 @@ public class StripXssTest {
     }
 
     @Test
-    public void testStripXssValue() {
-        StripXss stripXss = new DefaultStripXssImpl();
+    public void testRansackXssValue() {
+        RansackXss ransackXss = new DefaultRansackXssImpl();
 
-        String filteredValue = stripXss.stripXSS(parameterValue);
+        String filteredValue = ransackXss.ransackXss(parameterValue);
 
         assertNotNull(filteredValue);
         assertThat(filteredValue, Is.is(expected));

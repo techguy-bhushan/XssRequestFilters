@@ -1,6 +1,6 @@
 package com.xss.request.filters.http.wrappers;
 
-import com.xss.request.filters.service.StripXss;
+import com.xss.request.filters.service.RansackXss;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequestWrapper;
 
 /**
  * @author  Bhushan Uniyal.
- * This class is responsible for filter the XSS in request you can add or remove the XSS handling logic in #stripXSS method in
+ * This class is responsible for filter the XSS in request you can add or remove the XSS handling logic in #ransackXss method in
  * CaptureRequestWrapper, CustomXssFilter use this class for remove xss in request.
  */
 public class CaptureRequestWrapper extends HttpServletRequestWrapper {
 
-    private StripXss stripXss;
+    private RansackXss ransackXss;
 
-    public CaptureRequestWrapper(HttpServletRequest servletRequest, StripXss stripXss) {
+    public CaptureRequestWrapper(HttpServletRequest servletRequest, RansackXss ransackXss) {
         super(servletRequest);
-        this.stripXss = stripXss;
+        this.ransackXss = ransackXss;
     }
 
     @Override
@@ -29,7 +29,7 @@ public class CaptureRequestWrapper extends HttpServletRequestWrapper {
         int count = values.length;
         String[] encodedValues = new String[count];
         for (int i = 0; i < count; i++) {
-            encodedValues[i] = stripXss.stripXSS(values[i]);
+            encodedValues[i] = ransackXss.ransackXss(values[i]);
         }
         return encodedValues;
     }
@@ -37,13 +37,13 @@ public class CaptureRequestWrapper extends HttpServletRequestWrapper {
     @Override
     public String getParameter(String parameter) {
         String value = super.getParameter(parameter);
-        return stripXss.stripXSS(value);
+        return ransackXss.ransackXss(value);
     }
 
     @Override
     public String getHeader(String name) {
         String value = super.getHeader(name);
-        return stripXss.stripXSS(value);
+        return ransackXss.ransackXss(value);
     }
 
 
