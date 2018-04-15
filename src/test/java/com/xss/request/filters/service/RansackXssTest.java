@@ -30,6 +30,13 @@ public class RansackXssTest {
                 {"onload='myFunction()'Hello", "'myFunction()'Hello"},
                 {"eval(\"x * y\")", ""},
                 {"src='img/intro-carousel/w2.jpg'", ""},
+                {"src='img/intro-carousel/w2.jpg'", ""},
+                {"src='img/intro-carousel/w2.jpg'", ""},
+                {"<iframe src=\"https://www.youtube.com/watch?v=djU4Lq_5EaM\" />", "<iframe  />"},
+                {"<div style=\"width: 200;\">Selection</div>", ""},
+                {"<script>var currentValue='25;</script>", ""},
+                {"<div>UNTRUSTED HTML</div>", ""},
+                {"<input type=\"text\" value=\"fun time\"/>" , ""},
         });
     }
 
