@@ -1,8 +1,8 @@
-package com.xss.request.filters.config;
+package com.xss.filters.config;
 
-import com.xss.request.filters.filter.CustomXssFilter;
-import com.xss.request.filters.service.DefaultRansackXssImpl;
-import com.xss.request.filters.service.RansackXss;
+import com.xss.filters.service.DefaultRansackXssImpl;
+import com.xss.filters.service.RansackXss;
+import com.xss.filters.filter.CustomXssFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;

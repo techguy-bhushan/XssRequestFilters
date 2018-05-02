@@ -1,7 +1,7 @@
-package com.xss.request.filters.http.wrappers;
+package com.xss.filters.http.wrappers;
 
-import com.xss.request.filters.service.DefaultRansackXssImpl;
-import com.xss.request.filters.service.RansackXss;
+import com.xss.filters.service.DefaultRansackXssImpl;
+import com.xss.filters.service.RansackXss;
 import org.hamcrest.core.Is;
 
 import org.junit.Test;

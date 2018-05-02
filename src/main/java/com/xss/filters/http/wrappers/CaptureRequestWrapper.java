@@ -1,6 +1,6 @@
-package com.xss.request.filters.http.wrappers;
+package com.xss.filters.http.wrappers;
 
-import com.xss.request.filters.service.RansackXss;
+import com.xss.filters.service.RansackXss;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;

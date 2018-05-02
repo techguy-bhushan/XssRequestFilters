@@ -1,4 +1,4 @@
-package com.xss.request.filters.util;
+package com.xss.filters.util;
 
 import java.util.Arrays;
 import java.util.Collections;

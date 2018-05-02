@@ -1,10 +1,10 @@
-package com.xss.request.filters.config;
+package com.xss.filters.config;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.xss.request.filters.annotation.XxsFilter;
+import com.xss.filters.annotation.XxsFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;

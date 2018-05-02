@@ -1,8 +1,8 @@
-package com.xss.request.filters.service;
+package com.xss.filters.service;
 
 import java.util.regex.Pattern;
 
-import static com.xss.request.filters.util.ConstantUtil.*;
+import static com.xss.filters.util.ConstantUtil.*;
 
 public class DefaultRansackXssImpl implements RansackXss {
     @Override

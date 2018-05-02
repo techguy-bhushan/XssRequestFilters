@@ -4,10 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.xss.request.filters</groupId>
-    <artifactId>request.filters</artifactId>
+    <groupId>com.xss.request.filter</groupId>
+    <artifactId>xss.filter</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>Xss Request Filter</name>
+    <packaging>jar</packaging>
 
     <licenses>
         <license>

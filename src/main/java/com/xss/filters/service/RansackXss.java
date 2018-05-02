@@ -1,4 +1,4 @@
-package com.xss.request.filters.service;
+package com.xss.filters.service;
 
 /*remove xss target from value.*/
 public interface RansackXss {

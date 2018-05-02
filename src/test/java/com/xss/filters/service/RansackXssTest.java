@@ -1,4 +1,4 @@
-package com.xss.request.filters.service;
+package com.xss.filters.service;
 
 import org.hamcrest.core.Is;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package com.xss.request.filters.annotation;
+package com.xss.filters.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

@@ -1,7 +1,9 @@
-package com.xss.request.filters.filter;
+package com.xss.filters.filter;
 
-import com.xss.request.filters.http.wrappers.CaptureRequestWrapper;
-import com.xss.request.filters.service.RansackXss;
+import com.xss.filters.annotation.XxsFilter;
+import com.xss.filters.config.XssFiltersConfiguration;
+import com.xss.filters.service.RansackXss;
+import com.xss.filters.http.wrappers.CaptureRequestWrapper;
 
 import java.io.IOException;
 
@@ -17,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * @author  Bhushan Uniyal.
  *
- * This filter will only work for request which action have annotated {@link com.xss.request.filters.annotation.XxsFilter} (with help of   {@link com.xss.request.filters.config.XssFiltersConfiguration} )
+ * This filter will only work for request which action have annotated {@link XxsFilter} (with help of   {@link XssFiltersConfiguration} )
  */
 public class CustomXssFilter implements Filter {
     private RansackXss ransackXss;
