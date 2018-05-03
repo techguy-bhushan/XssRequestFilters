@@ -7,9 +7,10 @@ import javax.servlet.http.HttpServletRequestWrapper;
 
 
 /**
- * @author  Bhushan Uniyal.
  * This class is responsible for filter the XSS in request you can add or remove the XSS handling logic in #ransackXss method in
  * CaptureRequestWrapper, CustomXssFilter use this class for remove xss in request.
+ *
+ * @author  Bhushan Uniyal.
  */
 public class CaptureRequestWrapper extends HttpServletRequestWrapper {
 

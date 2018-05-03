@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class ConstantUtil {
+
     public static final List<Pattern> FILTER_PATTERNS = Collections.unmodifiableList(Arrays.<Pattern>asList(
 
             // Avoid common html tags

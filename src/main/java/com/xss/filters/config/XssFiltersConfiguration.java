@@ -12,11 +12,12 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
-/*
-* @author  Bhushan Uniyal.
-* This Component will search all the url's which action are annotated with @XxsFilter (collect the list of urls, which will be pick by
-* CustomXssFilter)
-* */
+/**
+ * This Component will search all the url's which action are annotated with @XxsFilter (collect the list of urls, which will be pick by
+ * CustomXssFilter)
+ *
+ * @author  Bhushan Uniyal.
+ * */
 @Component
 @DependsOn("requestMappingHandlerMapping")
 public class XssFiltersConfiguration {

@@ -17,9 +17,9 @@ import javax.servlet.http.HttpServletRequest;
 
 
 /**
- * @author  Bhushan Uniyal.
+ *<p>This filter will only work for request which action have annotated {@link XxsFilter} (with help of   {@link XssFiltersConfiguration})</p>
  *
- * This filter will only work for request which action have annotated {@link XxsFilter} (with help of   {@link XssFiltersConfiguration} )
+ * @author  Bhushan Uniyal.
  */
 public class CustomXssFilter implements Filter {
     private RansackXss ransackXss;

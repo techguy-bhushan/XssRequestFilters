@@ -12,16 +12,18 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-/*
-* @author Bhushan Uniyal.
-*
-* This component will register {@link com.xss.request.filters.filter.CustomXssFilter} only if there will any
-* {@link com.xss.request.filters.annotation.XxsFilter}  annotation used in url mapping, if there will no @XxsFilte
-* used in application then CustomXssFilter will disable.
-* */
+/**
+ * This component will register {@link CustomXssFilter} only if there will any
+ * {@link com.xss.filters.annotation.XxsFilter}  annotation used in url mapping, if there will no @XxsFilte
+ * used in application then CustomXssFilter will disable.
+ *
+ * @author Bhushan Uniyal.
+ * */
+
 @Component
 @DependsOn("xssFiltersConfiguration")
 public class FilterConfig {
+
     @Autowired
     private XssFiltersConfiguration xssFiltersConfiguration;
 
