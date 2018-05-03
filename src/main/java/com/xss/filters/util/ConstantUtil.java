@@ -14,6 +14,8 @@ public class ConstantUtil {
             Pattern.compile("<span(.*?)</span>", Pattern.CASE_INSENSITIVE),
             Pattern.compile("<div(.*)</div>", Pattern.CASE_INSENSITIVE),
             Pattern.compile("<style>(.*?)</style>", Pattern.CASE_INSENSITIVE),
+            //Avoid onload= expressions
+            Pattern.compile("onload(.*?)=", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL),
             // Avoid anything between script tags
             Pattern.compile("<script>(.*?)</script>", Pattern.CASE_INSENSITIVE),
             // Avoid javascript:... expressions
@@ -21,8 +23,6 @@ public class ConstantUtil {
             // Remove any lonesome </script> tag
             Pattern.compile("</script>", Pattern.CASE_INSENSITIVE),
             Pattern.compile("<script(.*?)>", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL),
-            // Avoid javascript:... expressions
-            Pattern.compile("javascript:", Pattern.CASE_INSENSITIVE),
             // Avoid anything in a src='...' type of expression
             Pattern.compile("src[\r\n]*=[\r\n]*\\\'(.*?)\\\'", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL),
             Pattern.compile("src[\r\n]*=[\r\n]*\\\"(.*?)\\\"", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL),
@@ -30,9 +30,7 @@ public class ConstantUtil {
             Pattern.compile("eval\\((.*?)\\)", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL),
             Pattern.compile("expression\\((.*?)\\)", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL),
             // Avoid vbscript:... expressions
-            Pattern.compile("vbscript:", Pattern.CASE_INSENSITIVE),
-            //Avoid onload= expressions
-            Pattern.compile("onload(.*?)=", Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL)
+            Pattern.compile("vbscript:", Pattern.CASE_INSENSITIVE)
 
     ));
 
