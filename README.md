@@ -87,7 +87,24 @@ So for your custom logic for filter xss request you just need following steps:
 
 done... Now instead of DefaultRansackXssImpl, RansackXss will use your class implementation rules for filter xss
   
+ 
+## Download it from here  
+
+* Apache Maven  
+  ```xml
+    <dependency>
+     <groupId>com.github.techguy-bhushan</groupId>
+     <artifactId>xss.filter</artifactId>
+     <version>1.0.1</version>
+    </dependency> 
+  ```
+ 
+ * Gradle/Grails
+ 
+ `compile 'com.github.techguy-bhushan:xss.filter:1.0.1'`
   
+ * [jar](https://search.maven.org/remotecontent?filepath=com/github/techguy-bhushan/xss.filter/1.0.1/xss.filter-1.0.1.jar)
+ 
   
 ## Here are some useful classes used in XssRequestFilter
 
