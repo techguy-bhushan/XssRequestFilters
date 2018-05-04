@@ -96,15 +96,15 @@ done... Now instead of DefaultRansackXssImpl, RansackXss will use your class imp
     <dependency>
      <groupId>com.github.techguy-bhushan</groupId>
      <artifactId>xss.filter</artifactId>
-     <version>1.0.1</version>
+     <version>1.0.2</version>
     </dependency> 
   ```
  
  * Gradle/Grails
  
- `compile 'com.github.techguy-bhushan:xss.filter:1.0.1'`
+ `compile 'com.github.techguy-bhushan:xss.filter:1.0.2'`
   
- * [jar](https://search.maven.org/remotecontent?filepath=com/github/techguy-bhushan/xss.filter/1.0.1/xss.filter-1.0.1.jar)
+ * [jar](https://search.maven.org/remotecontent?filepath=com/github/techguy-bhushan/xss.filter/1.0.2/xss.filter-1.0.2.jar)
  
   
 ## Here are some useful classes used in XssRequestFilter

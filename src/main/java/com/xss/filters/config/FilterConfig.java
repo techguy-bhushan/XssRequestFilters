@@ -33,7 +33,7 @@ public class FilterConfig {
         registration.setFilter(new CustomXssFilter(ransackXss));
         List<String> patters = xssFiltersConfiguration.xssMatches();
         if(patters.size() > 0) {
-            registration.addUrlPatterns((String[]) patters.toArray());
+            registration.addUrlPatterns(patters.toArray(new String[0]));
         } else {
             registration.setEnabled(false);
         }

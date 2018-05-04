@@ -21,6 +21,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 @Component
 @DependsOn("requestMappingHandlerMapping")
 public class XssFiltersConfiguration {
+
     @Autowired
     private RequestMappingHandlerMapping requestMappingHandlerMapping;
 

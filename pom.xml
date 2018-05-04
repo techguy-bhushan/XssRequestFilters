@@ -6,7 +6,7 @@
 
     <groupId>com.github.techguy-bhushan</groupId>
     <artifactId>xss.filter</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <name>Xss Request Filter</name>
     <description>Filter the cross-site scripting for your Controller/RestController request.</description>
     <packaging>jar</packaging>
