@@ -9,9 +9,18 @@ __XssRequestFilter__ is a spring based framework to filter the cross-site script
 
 
 Use @XxsFilter annotation on your controller methods where you wish to filter  Cross-site scripting.
-It will remove all xss from request parameter.
+It will remove all xss from request parameter. Also use  `@ComponentScan("com.xss.filters")` in your one of configuration class for active the auto configuration for XssRequestFilter.
 
 example:
+```
+@Configuration
+@ComponentScan("com.xss.filters")
+public class Config {
+}
+
+````
+
+
 ```
 @Controller
 public class TestController {
