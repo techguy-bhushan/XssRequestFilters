@@ -5,7 +5,7 @@ Filter the Cross-site scripting
 __Cross-site scripting (XSS)__ is a type of computer security vulnerability typically found in web applications. XSS enables attackers to inject client-side scripts into web pages viewed by other users. A cross-site scripting vulnerability may be used by attackers to bypass access controls such as the same-origin policy[..read more...](https://en.wikipedia.org/wiki/Cross-site_scripting)
 
 
-__XssRequestFilter__ is a spring based framework to filter the cross-site scripting in your @Controller request just using a simple @XxsFilter annotation . Also it's easy to customized you own rule for filter xss request.
+__XssRequestFilter__ is a spring based framework to filter the cross-site scripting in your @Controller request (current version support form data) just using a simple @XxsFilter annotation . Also it's easy to customized you own rule for filter xss request.
 
 
 Use @XxsFilter annotation on your controller methods where you wish to filter  Cross-site scripting.
