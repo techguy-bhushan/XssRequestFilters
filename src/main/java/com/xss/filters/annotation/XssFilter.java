@@ -7,12 +7,14 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- *<p>Use this annotation on your controller methods/actions where you wish to filter Cross-site scripting. It will remove all xss from request parameter.</p>
+ * <p>Use this annotation on your controller methods/actions where you wish to filter Cross-site
+ * scripting. It will remove all xss from request parameter.</p>
  *
- * @author  Bhushan Uniyal.
+ * @author Bhushan Uniyal.
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface XxsFilter {
+public @interface XssFilter {
+
 }
