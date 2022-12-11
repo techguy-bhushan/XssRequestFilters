@@ -5,7 +5,7 @@ import static org.mockito.Mockito.when;
 import com.xss.filters.service.DefaultRansackXssImpl;
 import com.xss.filters.service.RansackXss;
 import com.xss.filters.service.ServletRequestXssFilterManager;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

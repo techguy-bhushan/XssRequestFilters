@@ -2,19 +2,20 @@ package com.xss.filters.config;
 
 import com.xss.filters.annotation.XssFilter;
 import com.xss.filters.filter.CustomXssFilter;
-import com.xss.filters.service.ServletInputStreamXssJsonFilterProvider;
-import com.xss.filters.service.ServletInputStreamXssFilterProvider;
-import com.xss.filters.service.ServletRequestXssFilterManager;
 import com.xss.filters.service.DefaultRansackXssImpl;
 import com.xss.filters.service.RansackXss;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import com.xss.filters.service.ServletInputStreamXssFilterProvider;
+import com.xss.filters.service.ServletInputStreamXssJsonFilterProvider;
+import com.xss.filters.service.ServletRequestXssFilterManager;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 /**
  * This component will register {@link CustomXssFilter} only if there will any {@link XssFilter}

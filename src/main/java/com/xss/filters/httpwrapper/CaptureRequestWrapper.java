@@ -2,12 +2,13 @@ package com.xss.filters.httpwrapper;
 
 import com.xss.filters.service.RansackXss;
 import com.xss.filters.service.ServletRequestXssFilterManager;
+import jakarta.servlet.ServletInputStream;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequestWrapper;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Objects;
-import javax.servlet.ServletInputStream;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequestWrapper;
 
 /**
  * This class is responsible for filter the XSS in request you can add or remove the XSS handling
@@ -18,54 +19,54 @@ import javax.servlet.http.HttpServletRequestWrapper;
  */
 public class CaptureRequestWrapper extends HttpServletRequestWrapper {
 
-  private final RansackXss ransackXss;
-  private final ServletRequestXssFilterManager servletRequestXssFilterManager;
+    private final RansackXss ransackXss;
+    private final ServletRequestXssFilterManager servletRequestXssFilterManager;
 
 
-  public CaptureRequestWrapper(HttpServletRequest request, RansackXss ransackXss,
-      ServletRequestXssFilterManager servletRequestXssFilterManager) {
-    super(request);
-    if (Objects.isNull(ransackXss)) {
-      throw new IllegalArgumentException("ransackXss can't be null");
+    public CaptureRequestWrapper(HttpServletRequest request, RansackXss ransackXss,
+                                 ServletRequestXssFilterManager servletRequestXssFilterManager) {
+        super(request);
+        if (Objects.isNull(ransackXss)) {
+            throw new IllegalArgumentException("ransackXss can't be null");
+        }
+        this.ransackXss = ransackXss;
+        this.servletRequestXssFilterManager = servletRequestXssFilterManager;
     }
-    this.ransackXss = ransackXss;
-    this.servletRequestXssFilterManager = servletRequestXssFilterManager;
-  }
 
-  @Override
-  public String[] getParameterValues(String parameter) {
-    String[] values = super.getParameterValues(parameter);
-    if (values == null) {
-      return null;
+    @Override
+    public String[] getParameterValues(String parameter) {
+        String[] values = super.getParameterValues(parameter);
+        if (values == null) {
+            return null;
+        }
+        int count = values.length;
+        String[] encodedValues = new String[count];
+        for (int i = 0; i < count; i++) {
+            encodedValues[i] = ransackXss.ransack(values[i]);
+        }
+        return encodedValues;
     }
-    int count = values.length;
-    String[] encodedValues = new String[count];
-    for (int i = 0; i < count; i++) {
-      encodedValues[i] = ransackXss.ransack(values[i]);
+
+    @Override
+    public String getParameter(String parameter) {
+        String value = super.getParameter(parameter);
+        return ransackXss.ransack(value);
     }
-    return encodedValues;
-  }
 
-  @Override
-  public String getParameter(String parameter) {
-    String value = super.getParameter(parameter);
-    return ransackXss.ransack(value);
-  }
+    @Override
+    public String getHeader(String name) {
+        String value = super.getHeader(name);
+        return ransackXss.ransack(value);
+    }
 
-  @Override
-  public String getHeader(String name) {
-    String value = super.getHeader(name);
-    return ransackXss.ransack(value);
-  }
+    @Override
+    public BufferedReader getReader() throws IOException {
+        return servletRequestXssFilterManager.getBufferedReader(this, ransackXss);
+    }
 
-  @Override
-  public BufferedReader getReader() throws IOException {
-    return servletRequestXssFilterManager.getBufferedReader(this, ransackXss);
-  }
-
-  @Override
-  public ServletInputStream getInputStream() throws IOException {
-    return servletRequestXssFilterManager.getServletInputStream(this, ransackXss);
-  }
+    @Override
+    public ServletInputStream getInputStream() throws IOException {
+        return servletRequestXssFilterManager.getServletInputStream(this, ransackXss);
+    }
 
 }

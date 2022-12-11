@@ -1,6 +1,10 @@
 package com.xss.filters.service;
 
 import com.xss.filters.httpwrapper.CaptureRequestWrapper;
+import jakarta.servlet.ServletInputStream;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -8,9 +12,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.List;
-import javax.servlet.ServletInputStream;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 /**
  * Json Xss ServletInputStream Filter Implementation for ServletInputStream

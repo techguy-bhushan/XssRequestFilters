@@ -1,7 +1,7 @@
 package com.xss.filters.service;
 
 import com.xss.filters.httpwrapper.CaptureRequestWrapper;
-import javax.servlet.ServletInputStream;
+import jakarta.servlet.ServletInputStream;
 
 /**
  * ServletInputStreamXssFilterProvider to get ServletInputStream based on supported content type

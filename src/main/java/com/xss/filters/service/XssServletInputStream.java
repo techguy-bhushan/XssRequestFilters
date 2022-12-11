@@ -1,8 +1,9 @@
 package com.xss.filters.service;
 
+import jakarta.servlet.ReadListener;
+import jakarta.servlet.ServletInputStream;
+
 import java.io.ByteArrayInputStream;
-import javax.servlet.ReadListener;
-import javax.servlet.ServletInputStream;
 
 /**
  * XssServletInputStream read data using ByteArrayInputStream.
@@ -11,30 +12,30 @@ import javax.servlet.ServletInputStream;
  */
 public class XssServletInputStream extends ServletInputStream {
 
-  private final ByteArrayInputStream requestBody;
+    private final ByteArrayInputStream requestBody;
 
-  public XssServletInputStream(ByteArrayInputStream requestBody) {
-    this.requestBody = requestBody;
-  }
+    public XssServletInputStream(ByteArrayInputStream requestBody) {
+        this.requestBody = requestBody;
+    }
 
-  @Override
-  public boolean isFinished() {
-    return false;
-  }
+    @Override
+    public boolean isFinished() {
+        return false;
+    }
 
-  @Override
-  public boolean isReady() {
-    return true;
-  }
+    @Override
+    public boolean isReady() {
+        return true;
+    }
 
-  @Override
-  public void setReadListener(ReadListener readListener) {
+    @Override
+    public void setReadListener(ReadListener readListener) {
 
-  }
+    }
 
-  @Override
-  public int read() {
-    return requestBody.read();
-  }
+    @Override
+    public int read() {
+        return requestBody.read();
+    }
 
 }
