@@ -1,4 +1,4 @@
-package com.xss.filters.service;
+package com.xss.filter.service;
 
 /**
  * RansackXss service is responsible for remove xss from targeted request. You can create your own
@@ -6,8 +6,8 @@ package com.xss.filters.service;
  *
  * @author Bhushan Uniyal
  */
-public interface RansackXss {
+public interface RansackXssService {
 
-  String ransack(String value);
+    String ransack(String value);
 
 }
