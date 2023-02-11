@@ -9,12 +9,12 @@ __XssRequestFilter__ is a spring based lib to filter the cross-site scripting in
 
 
 Use @XssFilter annotation on your controller methods where you wish to filter  Cross-site scripting.
-It will remove all xss from request parameter. Also use  `@ComponentScan("com.xss.filters")` in your one of configuration class for active the autoconfiguration for XssRequestFilter.
+It will remove all xss from request parameter. Also use  `@ComponentScan("com.xss.filter")` in your one of configuration class for active the autoconfiguration for XssRequestFilter.
 
 example:
 ```
 @Configuration
-@ComponentScan("com.xss.filters")
+@ComponentScan("com.xss.filter")
 public class Config {
 }
 
@@ -140,14 +140,20 @@ service for filter the xss request, this service implemented **RansackXss** inte
 
 So for your custom logic for filter xss request you just need following steps:
 1. Create a class which will implement the RansackXss interface.
-2. Implement the `String ransackXss(String value);` method. (value parameter is ServletRequest parameter where client can inject the xss, you need to perform the filter on this value, you can take a reference of DefaultRansackXssImpl class)
+2. Implement the `String ransackXssService(String value);` method. (value parameter is ServletRequest parameter where client can inject the xss, you need to perform the filter on this value, you can take a reference of DefaultRansackXssImpl class)
 3. Create a bean of this class 
 
 done... Now instead of DefaultRansackXssImpl, RansackXss will use your class implementation rules for filter xss
 
-### Supported Request content type : (version 1.1.0)
+### Supported Request content type : (version >= 1.1.0)
 * application/x-www-form-urlencoded
 * application/json
+
+### Xss Version Support with Spring-boot 
+| Springboot vesrion | xss.filter version support |
+|--------------------|----------------------------|
+| SpringBoot 2.\*.*  | 1.1.0                      |
+| SpringBoot 3.\*.*  | 2.0.0                      |
 
 ## Download it from here  
 
@@ -156,13 +162,13 @@ done... Now instead of DefaultRansackXssImpl, RansackXss will use your class imp
     <dependency>
      <groupId>com.github.techguy-bhushan</groupId>
      <artifactId>xss.filter</artifactId>
-     <version>1.1.0</version>
+     <version>2.0.0</version>
     </dependency> 
   ```
  
  * Gradle/Grails
  
- `compile 'com.github.techguy-bhushan:xss.filter:1.1.0'`
+ `compile 'com.github.techguy-bhushan:xss.filter:2.0.0'`
 
   
 ## Here are some useful classes used in XssRequestFilter

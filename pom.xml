@@ -6,7 +6,7 @@
 
     <groupId>com.github.techguy-bhushan</groupId>
     <artifactId>xss.filter</artifactId>
-    <version>1.1.0</version>
+    <version>2.0.0</version>
     <name>Xss Request Filter</name>
     <description>Filter the cross-site scripting for your Controller/RestController request.
     </description>
@@ -31,7 +31,7 @@
     <parent>
         <artifactId>spring-boot-starter-parent</artifactId>
         <groupId>org.springframework.boot</groupId>
-        <version>2.6.4</version>
+        <version>3.0.0</version>
     </parent>
 
     <properties>
@@ -65,7 +65,7 @@
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.7</version>
+                        <version>1.6.13</version>
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>ossrh</serverId>
