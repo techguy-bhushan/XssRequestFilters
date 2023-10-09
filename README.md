@@ -130,20 +130,24 @@ Note : `@XssFilter` bound with Url Patterns so it can process matched url with d
 
 [XSS Filter Evasion Cheat Sheet](https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet)
 
-If above patterns are not enough for you, and you want your own custom pattern for filter xss request, then no worry XssRequestFilter also support 
-your custom logic for filter your xss request.
+This library employs a default blacklist approach to identify known malicious inputs and block them. While this method forms a part of the security strategy, it is not comprehensive on its own. Attackers frequently discover ways to evade blacklist filters, employing diverse encoding techniques or devising new attack vectors not covered by the blacklist. For every identified case, there exist countless scenarios, making it crucial to have a more adaptable defense.
+
+To address this challenge, the library provides an interface called **XssAttackService**. Developers utilizing this library can create their custom implementations of this interface, enabling them to employ a whitelist approach.
+This approach offers a more robust defense against XSS attacks. Developers can tailor their implementation according to the specific requirements of their APIs or business data, ensuring a personalized and effective security barrier. The flexibility of the whitelist approach empowers developers to safeguard their applications effectively, mitigating the risks posed by evolving XSS attack techniques.
 
 ## Create your own custom logic for filter xss request:
+If the predefined blacklist patterns don't meet your security needs, you have the flexibility to establish your own custom whitelist approach or even combine whitelisted and blacklisted filters for XSS patterns. To facilitate this customization, the XssRequestFilter offers robust support. It allows you to implement tailored logic, empowering you to filter XSS requests according to your specific requirements.
+This flexibility ensures that you can create a security framework that aligns precisely with your application's unique demands, providing a higher level of protection against XSS attacks.
 
-By default this framework you [DefaultRansackXssImpl](https://github.com/techguy-bhushan/XssRequestFilters/blob/master/src/main/java/com/xss/filters/service/DefaultRansackXssImpl.java)
-service for filter the xss request, this service implemented **RansackXss** interface.
+By default this framework use [DefaultRansackXssImpl](https://github.com/techguy-bhushan/XssRequestFilters/blob/master/src/main/java/com/xss/filter/service/impl/DefaultRansackXssServiceImpl.java)
+service for filter the xss request, this service implemented **XssAttackService** interface.
 
 So for your custom logic for filter xss request you just need following steps:
-1. Create a class which will implement the RansackXss interface.
-2. Implement the `String ransackXssService(String value);` method. (value parameter is ServletRequest parameter where client can inject the xss, you need to perform the filter on this value, you can take a reference of DefaultRansackXssImpl class)
+1. Create a class which will XssAttackService the RansackXss interface.
+2. Implement the `String ransack(String value);` method. (value can be ServletRequest headers/parameters/json payload form where client can inject the xss, you need to perform the filter on this value, you can take a reference of DefaultRansackXssServiceImpl class)
 3. Create a bean of this class 
 
-done... Now instead of DefaultRansackXssImpl, RansackXss will use your class implementation rules for filter xss
+done... Now instead of DefaultRansackXssServiceImpl, XssAttackService will use your class implementation rules for filter xss
 
 ### Supported Request content type : (version >= 1.1.0)
 * application/x-www-form-urlencoded
